@@ -1,0 +1,9 @@
+# dart run flutter_native_splash:create
+flutter_native_splash:
+  color: "#fcfcfc"
+  color_dark: "#1a1a1a"
+  color_ios: "#ffffff"
+  color_ios_dark: "#000000"
+  image: assets/logo/warpinator.png
+  android_12:
+    icon_background_color_dark: "#ffffff"
