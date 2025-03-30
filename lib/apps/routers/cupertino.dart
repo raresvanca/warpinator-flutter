@@ -8,6 +8,7 @@ import 'package:warpinator/screens/cupertino/settings.dart';
 part 'cupertino.g.dart';
 
 @TypedGoRoute<HomeRoute>(path: '/', name: 'Home', routes: [
+  TypedGoRoute<SettingsRoute>(path: 'settings', name: 'Settings'),
 ])
 class HomeRoute extends GoRouteData {
   const HomeRoute();
@@ -15,5 +16,14 @@ class HomeRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const HomeScreenCupertino();
+  }
+}
+
+class SettingsRoute extends GoRouteData {
+  const SettingsRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const SettingsScreenCupertino();
   }
 }
