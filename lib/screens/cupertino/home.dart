@@ -85,7 +85,10 @@ class HomeScreenCupertino extends StatelessWidget {
           child: const Text('Help'),
         ),
         CupertinoActionSheetAction(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+            const AboutRoute().go(context);
+          },
           child: const Text('About'),
         ),
       ],
