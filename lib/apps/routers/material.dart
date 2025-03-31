@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:warpinator/screens/material/home.dart';
 
 // dart run build_runner build
 
@@ -11,6 +12,6 @@ class HomeRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Placeholder();
+    return const HomeScreenMaterial();
   }
 }
