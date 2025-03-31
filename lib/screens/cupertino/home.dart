@@ -1,4 +1,7 @@
+import 'package:end_padding/end_padding.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:warpinator/apps/routers/cupertino.dart';
 import 'package:warpinator/widgets/cupertino/remote_view.dart';
 
@@ -7,38 +10,85 @@ class HomeScreenCupertino extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      backgroundColor: CupertinoColors.systemGroupedBackground,
-      child: CustomScrollView(
-        slivers: [
-          CupertinoSliverRefreshControl(
-            onRefresh: () async {},
-          ),
-          CupertinoSliverNavigationBar(
-            backgroundColor: CupertinoColors.black.withAlpha(50),
-            trailing: CupertinoButton(
-              padding: EdgeInsets.zero,
-              onPressed: () {
-                showCupertinoModalPopup(
-                  context: context,
-                  builder: moreActionsSheetBuilder,
-                );
-              },
-              child: const Icon(CupertinoIcons.ellipsis_circle),
-            ),
-            largeTitle: const Text('Devices'),
-            middle: const Text('Warpinator'),
-          ),
-          SliverToBoxAdapter(
-            child: CupertinoListSection.insetGrouped(
+    final remotes = [];
+    final Widget content;
+
+    if (remotes.isEmpty) {
+      final theme = CupertinoTheme.of(context);
+      content = SliverFillRemaining(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const CupertinoRemoteView(favorite: true),
-                const CupertinoRemoteView(favorite: false),
+                SvgPicture.asset(
+                  'assets/states/no_devices.svg',
+                  width: 300,
+                  colorFilter: ColorFilter.mode(
+                    theme.primaryColor,
+                    BlendMode.modulate,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'No devices found',
+                  style: theme.textTheme.navLargeTitleTextStyle.copyWith(
+                    color: theme.primaryColor,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'Make sure your devices are on the same network and use the same group code.',
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.textStyle.copyWith(
+                    color: CupertinoColors.systemGrey,
+                    fontSize: 14,
+                  ),
+                ),
               ],
             ),
           ),
-          const SliverPadding(padding: EdgeInsets.only(bottom: 1000)),
-        ],
+        ),
+      );
+    } else {
+      content = SliverToBoxAdapter(
+        child: CupertinoListSection.insetGrouped(
+          children: [
+            const CupertinoRemoteView(favorite: true),
+            const CupertinoRemoteView(favorite: false),
+          ],
+        ),
+      );
+    }
+
+    return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.systemGroupedBackground,
+      child: SlidableAutoCloseBehavior(
+        child: CustomScrollView(
+          slivers: [
+            CupertinoSliverRefreshControl(
+              onRefresh: () async {},
+            ),
+            CupertinoSliverNavigationBar(
+              backgroundColor: CupertinoColors.black.withAlpha(50),
+              trailing: CupertinoButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  showCupertinoModalPopup(
+                    context: context,
+                    builder: moreActionsSheetBuilder,
+                  );
+                },
+                child: const Icon(CupertinoIcons.ellipsis_circle),
+              ),
+              largeTitle: const Text('Devices'),
+              middle: const Text('Warpinator'),
+            ),
+            content,
+            const SliverEndPadding(),
+          ],
+        ),
       ),
     );
   }
