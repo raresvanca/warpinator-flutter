@@ -15,6 +15,9 @@ class WarpinatorCupertinoApp extends StatelessWidget {
       title: 'Warpinator',
       // Add localization
       debugShowCheckedModeBanner: false,
+      theme: const CupertinoThemeData(
+        primaryColor: CupertinoColors.systemIndigo,
+      ),
     );
   }
 }

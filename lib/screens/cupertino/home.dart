@@ -7,6 +7,7 @@ class HomeScreenCupertino extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.systemGroupedBackground,
       child: CustomScrollView(
         slivers: [
           CupertinoSliverRefreshControl(

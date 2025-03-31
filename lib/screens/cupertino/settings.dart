@@ -6,6 +6,7 @@ class SettingsScreenCupertino extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.systemGroupedBackground,
       child: CustomScrollView(
         slivers: [
           const CupertinoSliverNavigationBar(
