@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:warpinator/apps/routers/material.dart';
 import 'package:warpinator/widgets/common/sliver_no_devices_status.dart';
 import 'package:warpinator/widgets/material/remote_view.dart';
 
@@ -68,6 +69,8 @@ class HomeScreenMaterial extends StatelessWidget {
                   onSelected: (value) {
                     switch (value) {
                       case _HomeMenuAction.settings:
+                        const SettingsRoute().go(context);
+                        break;
                       case _HomeMenuAction.manualConnection:
                       case _HomeMenuAction.refresh:
                       case _HomeMenuAction.help:
