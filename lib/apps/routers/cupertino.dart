@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:warpinator/screens/common/licenses_screen.dart';
 import 'package:warpinator/screens/cupertino/about.dart';
 import 'package:warpinator/screens/cupertino/home.dart';
 import 'package:warpinator/screens/cupertino/settings.dart';
@@ -13,7 +14,13 @@ part 'cupertino.g.dart';
   name: 'Home',
   routes: [
     TypedGoRoute<SettingsRoute>(path: 'settings', name: 'Settings'),
-    TypedGoRoute<AboutRoute>(path: 'about', name: 'About'),
+    TypedGoRoute<AboutRoute>(
+      path: 'about',
+      name: 'About',
+      routes: [
+        TypedGoRoute<LicensesRoute>(path: 'licenses', name: 'Licenses'),
+      ],
+    ),
   ],
 )
 class HomeRoute extends GoRouteData {
@@ -40,5 +47,14 @@ class AboutRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const AboutScreenCupertino();
+  }
+}
+
+class LicensesRoute extends GoRouteData {
+  const LicensesRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const LicensesScreen();
   }
 }

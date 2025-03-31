@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart' show DefaultMaterialLocalizations;
 import 'package:go_router/go_router.dart';
 
 class WarpinatorCupertinoApp extends StatelessWidget {
@@ -18,6 +19,11 @@ class WarpinatorCupertinoApp extends StatelessWidget {
       theme: const CupertinoThemeData(
         primaryColor: CupertinoColors.systemIndigo,
       ),
+      localizationsDelegates: const [
+        DefaultCupertinoLocalizations.delegate,
+        DefaultMaterialLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
     );
   }
 }
