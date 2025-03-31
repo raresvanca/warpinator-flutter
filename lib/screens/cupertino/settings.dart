@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:end_padding/end_padding.dart';
 
 class SettingsScreenCupertino extends StatelessWidget {
   const SettingsScreenCupertino({super.key});
@@ -30,6 +31,7 @@ class SettingsScreenCupertino extends StatelessWidget {
             ),
             children: networkSection,
           ),
+          const SliverEndPadding(),
         ],
       ),
     );
