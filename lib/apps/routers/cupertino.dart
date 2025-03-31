@@ -8,10 +8,14 @@ import 'package:warpinator/screens/cupertino/settings.dart';
 
 part 'cupertino.g.dart';
 
-@TypedGoRoute<HomeRoute>(path: '/', name: 'Home', routes: [
-  TypedGoRoute<SettingsRoute>(path: 'settings', name: 'Settings'),
-  TypedGoRoute<AboutRoute>(path: 'about', name: 'About'),
-])
+@TypedGoRoute<HomeRoute>(
+  path: '/',
+  name: 'Home',
+  routes: [
+    TypedGoRoute<SettingsRoute>(path: 'settings', name: 'Settings'),
+    TypedGoRoute<AboutRoute>(path: 'about', name: 'About'),
+  ],
+)
 class HomeRoute extends GoRouteData {
   const HomeRoute();
 

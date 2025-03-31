@@ -38,7 +38,9 @@ class WarpinatorMaterialApp extends StatelessWidget {
   }
 
   Widget materialAppBuilder(
-      ColorScheme lightColorScheme, ColorScheme darkColorScheme) {
+    ColorScheme lightColorScheme,
+    ColorScheme darkColorScheme,
+  ) {
     return MaterialApp.router(
       routeInformationParser: router.routeInformationParser,
       routerDelegate: router.routerDelegate,
@@ -49,10 +51,12 @@ class WarpinatorMaterialApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: lightColorScheme,
         brightness: lightColorScheme.brightness,
+        useMaterial3: true,
       ),
       darkTheme: ThemeData(
         colorScheme: darkColorScheme,
         brightness: darkColorScheme.brightness,
+        useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
     );
