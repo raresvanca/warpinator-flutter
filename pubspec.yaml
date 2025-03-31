@@ -38,4 +38,5 @@ flutter:
   assets:
     - assets/icon/warpinator.svg
     - assets/states/
+    - assets/text/
     

@@ -74,7 +74,9 @@ class HomeScreenMaterial extends StatelessWidget {
                       case _HomeMenuAction.manualConnection:
                       case _HomeMenuAction.refresh:
                       case _HomeMenuAction.help:
+                        break;
                       case _HomeMenuAction.about:
+                        const AboutRoute().go(context);
                         break;
                     }
                   },
