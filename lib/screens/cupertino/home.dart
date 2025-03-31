@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:warpinator/apps/routers/cupertino.dart';
+import 'package:warpinator/widgets/cupertino/remote_view.dart';
 
 class HomeScreenCupertino extends StatelessWidget {
   const HomeScreenCupertino({super.key});
@@ -31,28 +32,8 @@ class HomeScreenCupertino extends StatelessWidget {
           SliverToBoxAdapter(
             child: CupertinoListSection.insetGrouped(
               children: [
-                CupertinoListTile.notched(
-                  leading: const Icon(CupertinoIcons.person),
-                  title: const Text('Device name'),
-                  subtitle: const Text('user@host'),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () {},
-                  additionalInfo: const Text(
-                    '192.168.0.100',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ),
-                CupertinoListTile.notched(
-                  leading: const Icon(CupertinoIcons.person),
-                  title: const Text('Device name'),
-                  subtitle: const Text('user@host'),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () {},
-                  additionalInfo: const Text(
-                    'Connecting',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                ),
+                const CupertinoRemoteView(favorite: true),
+                const CupertinoRemoteView(favorite: false),
               ],
             ),
           ),
