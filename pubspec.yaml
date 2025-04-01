@@ -9,7 +9,9 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.8
-  dynamic_color: ^1.7.0
+  # Use dynamic_system_colors instead of dynamic_color as the latter
+  # is unmaintained and yielding wrong results
+  dynamic_system_colors: ^1.8.0
   end_padding: ^1.0.1
   expand: ^1.2.0
   flutter:

@@ -1,4 +1,4 @@
-import 'package:dynamic_color/dynamic_color.dart';
+import 'package:dynamic_system_colors/dynamic_system_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -16,7 +16,10 @@ class WarpinatorMaterialApp extends StatelessWidget {
         // Building the color scheme from the dynamic color or from the branding
         // colors
         if (lightDynamic != null && darkDynamic != null) {
-          // On Android S+ devices, use the provided dynamic color scheme.
+          // Rebuild the color scheme from the dynamic color as a workaround for
+          // unmaintained dynamic color package
+
+          // See https://github.com/material-foundation/flutter-packages/pull/599
           lightColorScheme = lightDynamic.harmonized();
           darkColorScheme = darkDynamic.harmonized();
         } else {
