@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:warpinator/apps/routers/material.dart';
 
 class MaterialRemoteView extends StatelessWidget {
   const MaterialRemoteView({super.key, required this.favorite});
@@ -20,7 +21,9 @@ class MaterialRemoteView extends StatelessWidget {
       title: const Text('Device name'),
       subtitle: const Text('user@host'),
       trailing: const Icon(Icons.chevron_right_rounded),
-      onTap: () {},
+      onTap: () {
+        const RemoteRoute().go(context);
+      },
     );
 
     Widget draggable;

@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:warpinator/screens/common/licenses_screen.dart';
 import 'package:warpinator/screens/material/about.dart';
 import 'package:warpinator/screens/material/home.dart';
+import 'package:warpinator/screens/material/remote.dart';
 import 'package:warpinator/screens/material/settings.dart';
 
 // dart run build_runner build
@@ -13,6 +14,7 @@ part 'material.g.dart';
   path: '/',
   name: 'Home',
   routes: [
+    TypedGoRoute<RemoteRoute>(path: 'remote', name: 'Remote'),
     TypedGoRoute<SettingsRoute>(path: 'settings', name: 'Settings'),
     TypedGoRoute<AboutRoute>(
       path: 'about',
@@ -29,6 +31,17 @@ class HomeRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const HomeScreenMaterial();
+  }
+}
+
+class RemoteRoute extends GoRouteData {
+  const RemoteRoute();
+
+  // final Remote remote;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const RemoteScreenMaterial();
   }
 }
 
