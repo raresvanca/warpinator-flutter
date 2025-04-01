@@ -1,3 +1,4 @@
+import 'package:end_padding/end_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:warpinator/apps/routers/material.dart';
@@ -106,6 +107,7 @@ class HomeScreenMaterial extends StatelessWidget {
               ],
             ),
             content,
+            const SliverEndPadding(),
           ],
         ),
       ),
