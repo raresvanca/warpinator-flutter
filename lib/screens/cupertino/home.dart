@@ -10,7 +10,7 @@ class HomeScreenCupertino extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final remotes = [];
+    final remotes = [1];
     final Widget content;
 
     if (remotes.isEmpty) {

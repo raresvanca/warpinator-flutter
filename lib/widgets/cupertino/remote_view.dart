@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:warpinator/apps/routers/cupertino.dart';
 
 class CupertinoRemoteView extends StatelessWidget {
   const CupertinoRemoteView({super.key, required this.favorite});
@@ -13,7 +14,9 @@ class CupertinoRemoteView extends StatelessWidget {
       title: const Text('Device name'),
       subtitle: const Text('user@host'),
       trailing: const CupertinoListTileChevron(),
-      onTap: () {},
+      onTap: () {
+        const RemoteRoute().go(context);
+      },
       // Use the additionalInfo property to show status when not connected
       // and the IP address when connected
       additionalInfo: const Text(
