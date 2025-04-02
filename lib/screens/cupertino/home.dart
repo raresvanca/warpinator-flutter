@@ -45,7 +45,6 @@ class HomeScreenCupertino extends StatelessWidget {
               onRefresh: () async {},
             ),
             CupertinoSliverNavigationBar(
-              backgroundColor: CupertinoColors.black.withAlpha(50),
               trailing: CupertinoButton(
                 padding: EdgeInsets.zero,
                 onPressed: () {
