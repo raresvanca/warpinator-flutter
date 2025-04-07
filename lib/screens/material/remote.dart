@@ -70,9 +70,10 @@ class _RemoteScreenMaterialState extends State<RemoteScreenMaterial> {
             const RemoteAppBar(),
             _connectionStatusCardBuilder(colorScheme, transfers.length),
             content,
-            SliverEndPadding(
-              useFloating: true && transfers.isNotEmpty,
-            ),
+            if (transfers.isNotEmpty)
+              const SliverEndPadding(
+                useFloating: true,
+              ),
           ],
         ),
       ),

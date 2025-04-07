@@ -107,7 +107,7 @@ class HomeScreenMaterial extends StatelessWidget {
               ],
             ),
             content,
-            const SliverEndPadding(),
+            if (remotes.isNotEmpty) const SliverEndPadding(),
           ],
         ),
       ),

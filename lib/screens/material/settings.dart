@@ -1,3 +1,4 @@
+import 'package:end_padding/end_padding.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreenMaterial extends StatelessWidget {
@@ -30,6 +31,7 @@ class SettingsScreenMaterial extends StatelessWidget {
               ),
             ],
           ),
+          const SliverEndPadding(),
         ],
       ),
     );

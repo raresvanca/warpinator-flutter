@@ -59,7 +59,7 @@ class HomeScreenCupertino extends StatelessWidget {
               middle: const Text('Warpinator'),
             ),
             content,
-            const SliverEndPadding(),
+            if (remotes.isNotEmpty) const SliverEndPadding(),
           ],
         ),
       ),

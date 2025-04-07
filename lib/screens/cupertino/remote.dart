@@ -46,9 +46,10 @@ class RemoteScreenCupertino extends StatelessWidget {
                     bottom: _RemoteAppBarBottom(),
                   ),
                   content,
-                  const SliverEndPadding(
-                    otherPadding: CupertinoToolbar.kTabBarHeight,
-                  ),
+                  if (transfers.isNotEmpty)
+                    const SliverEndPadding(
+                      otherPadding: CupertinoToolbar.kTabBarHeight,
+                    ),
                 ],
               ),
             ),
