@@ -30,6 +30,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+devtools_options.yaml
 
 # Symbolication related
 app.*.symbols
@@ -43,3 +44,7 @@ app.*.map.json
 /android/app/release
 
 **.g.dart
+
+# IDEs
+.idea/
+.vscode/
