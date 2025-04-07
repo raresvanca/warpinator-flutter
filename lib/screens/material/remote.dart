@@ -43,7 +43,7 @@ class _RemoteScreenMaterialState extends State<RemoteScreenMaterial> {
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
 
-    final transfers = [];
+    final transfers = [1];
 
     final Widget content;
 
