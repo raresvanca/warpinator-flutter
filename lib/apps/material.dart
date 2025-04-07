@@ -44,6 +44,15 @@ class WarpinatorMaterialApp extends StatelessWidget {
     ColorScheme lightColorScheme,
     ColorScheme darkColorScheme,
   ) {
+    // Set the predictive back transitions for Android.
+    // Note: The transition does not look native
+    const pageTransitionsTheme = PageTransitionsTheme(
+      builders: <TargetPlatform, PageTransitionsBuilder>{
+        // Set the predictive back transitions for Android.
+        TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+      },
+    );
+
     return MaterialApp.router(
       routeInformationParser: router.routeInformationParser,
       routerDelegate: router.routerDelegate,
@@ -55,11 +64,13 @@ class WarpinatorMaterialApp extends StatelessWidget {
         colorScheme: lightColorScheme,
         brightness: lightColorScheme.brightness,
         useMaterial3: true,
+        pageTransitionsTheme: pageTransitionsTheme,
       ),
       darkTheme: ThemeData(
         colorScheme: darkColorScheme,
         brightness: darkColorScheme.brightness,
         useMaterial3: true,
+        pageTransitionsTheme: pageTransitionsTheme,
       ),
       debugShowCheckedModeBanner: false,
     );
