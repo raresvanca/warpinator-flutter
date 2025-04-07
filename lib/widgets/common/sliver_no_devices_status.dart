@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:warpinator/widgets/common/sliver_display_relative_center.dart';
 
 class SliverNoDevicesStatus extends StatelessWidget {
   const SliverNoDevicesStatus({
@@ -15,8 +16,8 @@ class SliverNoDevicesStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      child: Center(
+    return SliverDisplayRelativeCenter(
+      child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
