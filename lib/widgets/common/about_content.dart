@@ -49,8 +49,19 @@ class AboutContent extends StatelessWidget {
                         text:
                             'This is an unofficial port of Warpinator. Powered by ',
                       ),
+                      const TextSpan(
+                        text: 'Flutter',
+                        style: TextStyle(
+                          height: 0,
+                          fontSize: 0,
+                          color: Colors.transparent,
+                        ),
+                        semanticsLabel: 'Flutter',
+                      ),
                       const WidgetSpan(
                         child: Tooltip(
+                          triggerMode: TooltipTriggerMode.tap,
+                          excludeFromSemantics: true,
                           message: 'Flutter',
                           child: FlutterLogo(size: 16),
                         ),
