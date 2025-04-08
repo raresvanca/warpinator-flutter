@@ -8,6 +8,7 @@ import 'package:warpinator/enums/ui_platform.dart';
 
 import 'package:warpinator/apps/routers/cupertino.dart' as cupertino;
 import 'package:warpinator/apps/routers/material.dart' as material;
+import 'package:warpinator/utils/notifications.dart';
 
 class WarpinatorApp extends StatefulWidget {
   const WarpinatorApp({super.key});
@@ -24,8 +25,8 @@ class _WarpinatorAppState extends State<WarpinatorApp> {
   @override
   void initState() {
     super.initState();
-
     updatePlatform();
+    NotificationUtils.requestAndCheckPermissions();
   }
 
   @override
