@@ -9,7 +9,7 @@ class NotificationUtils {
   static const String serviceNotificationChannelName = 'Warpinator Service';
   static const String serviceNotificationChannelDescription =
       'Status notifications for the Warpinator service';
-  static const int serviceNotificationId = 100;
+  static const int serviceNotificationId = 1111;
 
   static const String transferNotificationChannelId =
       'warpinator_transfer_channel';
@@ -24,9 +24,6 @@ class NotificationUtils {
     serviceNotificationChannelId,
     serviceNotificationChannelName,
     description: serviceNotificationChannelDescription,
-    importance: Importance.low,
-    playSound: false,
-    enableLights: false,
     enableVibration: false,
     showBadge: false,
   );
@@ -36,7 +33,6 @@ class NotificationUtils {
     transferNotificationChannelId,
     transferNotificationChannelName,
     description: transferNotificationChannelDescription,
-    groupId: transferNotificationGroupKey,
     importance: Importance.high,
   );
 
@@ -75,6 +71,8 @@ class NotificationUtils {
     await _flutterLocalNotificationsPlugin!.initialize(
       initializationSettings,
       onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
+      onDidReceiveBackgroundNotificationResponse:
+          onDidReceiveNotificationResponse,
     );
   }
 
@@ -89,6 +87,8 @@ class NotificationUtils {
   }
 
   static Future<void> requestAndCheckPermissions() async {
+    _flutterLocalNotificationsPlugin ??= FlutterLocalNotificationsPlugin();
+
     _isAndroidPermissionGranted();
 
     if (permissionGranted) {
@@ -134,9 +134,54 @@ class NotificationUtils {
     }
   }
 
-  static void onDidReceiveNotificationResponse(
-    NotificationResponse notificationResponse,
-  ) async {
-    // Handle the notification response
+  static Future<void> showServiceNotification({
+    int? transfersInProgress,
+  }) async {
+    _flutterLocalNotificationsPlugin ??= FlutterLocalNotificationsPlugin();
+
+    // Update service notification on Android and iOS
+
+    await _flutterLocalNotificationsPlugin!.show(
+      serviceNotificationId,
+      'Warpinator is running',
+      transfersInProgress != null
+          ? '$transfersInProgress transfers in progress'
+          : 'Tap to open the app',
+      const NotificationDetails(
+        android: AndroidNotificationDetails(
+          serviceNotificationChannelId,
+          serviceNotificationChannelName,
+          ongoing: true,
+          icon: 'ic_notification',
+          actions: [
+            AndroidNotificationAction(
+              'stop_service',
+              'Stop service',
+              cancelNotification: false,
+            ),
+          ],
+        ),
+        iOS: DarwinNotificationDetails(
+          presentAlert: false,
+          presentBadge: false,
+          presentSound: false,
+        ),
+      ),
+    );
+  }
+
+  static Future<void> cancelServiceNotification() async {
+    _flutterLocalNotificationsPlugin ??= FlutterLocalNotificationsPlugin();
+
+    await _flutterLocalNotificationsPlugin!.cancel(serviceNotificationId);
+  }
+}
+
+@pragma('vm:entry-point')
+void onDidReceiveNotificationResponse(
+  NotificationResponse notificationResponse,
+) async {
+  if (notificationResponse.actionId == 'stop_service') {
+    // TODO: Stop the service
   }
 }
