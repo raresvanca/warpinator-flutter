@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warpinator/utils/constants.dart' as constants;
 
 class AboutContent extends StatelessWidget {
   const AboutContent({
@@ -35,7 +36,7 @@ class AboutContent extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Version 0.1.0',
+                  'Version ${constants.appVersion}',
                   style: versionTextStyle,
                 ),
                 const SizedBox(height: 32),
