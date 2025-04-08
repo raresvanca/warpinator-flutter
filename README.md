@@ -15,3 +15,18 @@ Use this for compilation:
 ```sh
 protoc --dart_out=grpc:./lib/service/generated -Ilib/service warp.proto
 ```
+
+## Requirements
+### Linux
+
+Linux requires `ayatana-appindicator`.
+
+#### Fedora
+```bash
+sudo dnf install libayatana-appindicator-gtk3-devel
+```
+
+#### Debian based distributions
+```bash
+sudo apt-get install libayatana-appindicator3-dev
+```

@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_system_colors
   flutter_localization
+  tray_manager
   url_launcher_linux
 )
 
