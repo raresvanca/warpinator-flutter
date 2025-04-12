@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:warpinator/service/foreground_service.dart';
 import 'package:warpinator/utils/constants.dart' as constants;
 
 class NotificationUtils {
@@ -182,6 +183,6 @@ void onDidReceiveNotificationResponse(
   NotificationResponse notificationResponse,
 ) async {
   if (notificationResponse.actionId == 'stop_service') {
-    // TODO: Stop the service
+    ForegroundService.stopService();
   }
 }

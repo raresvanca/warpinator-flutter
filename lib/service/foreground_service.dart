@@ -42,12 +42,13 @@ class ForegroundService {
 
     service.on('stopService').listen((event) async {
       await service.stopSelf();
-      await NotificationUtils.cancelServiceNotification();
+      print('Service stopped');
     });
   }
 
   static Future<void> stopService() async {
-    _service?.invoke('stopService');
+    _service ??= FlutterBackgroundService();
+    _service!.invoke('stopService');
   }
 }
 
